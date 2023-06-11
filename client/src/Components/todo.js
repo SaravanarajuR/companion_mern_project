@@ -1,16 +1,7 @@
 import React, { Component } from "react";
-import { withStyles, createStyles } from "@material-ui/styles";
+import { withStyles } from "@material-ui/styles";
+import styles from "../tools/jss/todo";
 
-const styles = createStyles({
-  input: {
-    width: "100px",
-    padding: "4px 15px",
-    "&:focus": {
-      width: "240px",
-      transition: "2s",
-    },
-  },
-});
 class Todo extends Component {
   render() {
     const { classes } = this.props;
