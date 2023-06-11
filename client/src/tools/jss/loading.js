@@ -14,7 +14,7 @@ const styles = {
     animationTimingFunction: "linear",
   },
   parent: {
-    backgroundColor: "#6612b0",
+    backgroundColor: "#000033",
     width: "100vw",
     height: "100vh",
     display: "flex",
