@@ -75,6 +75,24 @@ const styles = {
     textAlign: "center",
     border: "1px solid white",
   },
+  button: {
+    width: "120px",
+    height: "30px",
+    backgroundColor: "Turquoise",
+    border: "none",
+    padding: "5px 10px",
+    borderRadius: "3px",
+  },
+  buttons: {
+    display: "flex",
+    gap: "20px",
+    justifyContent: "center",
+  },
+  select: {
+    width: "200px",
+    height: "30px",
+    backgroundColor: "Turquoise",
+  },
 };
 
 export default styles;
