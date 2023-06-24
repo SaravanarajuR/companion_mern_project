@@ -1,0 +1,60 @@
+const Styles = {
+  home: {
+    width: "100%",
+    height: "100%",
+    backgroundColor: "#000033",
+    userSelect: "none",
+  },
+  backParent: {
+    position: "absolute",
+    right: "60px",
+    top: "10px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "5px",
+    alignItems: "center",
+  },
+  back: {
+    padding: "10px",
+    backgroundColor: "rgba(255,255,255,0.7)",
+    width: "220px",
+    borderRadius: "20px",
+    height: "20px",
+    gap: "10px",
+    justifyContent: "center",
+    display: "flex",
+    alignItems: "center",
+    cursor: "pointer",
+    userSelect: "none",
+    fontSize: "1rem",
+    "&:hover": {
+      backgroundColor: "rgba(255,255,255,0.5)",
+    },
+  },
+  menuIcon: {
+    position: "absolute",
+    right: "10px",
+    color: "rgba(255,255,255,0.7)",
+    top: "11px",
+    fontSize: "2.6rem",
+  },
+  backText: {
+    fontFamily: "'Belanosima', sans-serif;",
+    fontSize: "1rem",
+  },
+  customInputButton: {
+    cursor: "pointer",
+    backgroundColor: "rgb(255, 255, 255, 0.6)",
+    width: "230px",
+    height: "30px",
+    borderRadius: "5px",
+    fontSize: "1.2rem",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontWeight: "800",
+    "&:hover": {},
+  },
+};
+
+export default Styles;

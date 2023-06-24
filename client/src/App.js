@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import "./tools/jss/index.css";
-import Timer from "./Components/timer";
+import Home from "./Components/home";
 
 class App extends Component {
   render() {
-    return <Timer />;
+    return <Home />;
   }
 }
 

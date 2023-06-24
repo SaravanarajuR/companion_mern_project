@@ -1,8 +1,8 @@
 const styles = {
   timer: {
-    width: "600px",
+    width: "10%",
     borderRadius: "100%",
-    height: "600px",
+    height: "10%",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",

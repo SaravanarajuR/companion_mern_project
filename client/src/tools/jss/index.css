@@ -12,3 +12,12 @@ body {
 
   align-items: center;
 }
+#visibilty {
+  display: none;
+}
+::-webkit-file-upload-button {
+  display: none;
+}
+input[type="file"] {
+  display: none;
+}
