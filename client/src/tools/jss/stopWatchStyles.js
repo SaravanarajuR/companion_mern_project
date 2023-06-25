@@ -1,22 +1,32 @@
 const styles = {
   timer: {
-    width: "10%",
-    borderRadius: "100%",
+    width: "20%",
     height: "10%",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    border: "1px solid black",
     flexDirection: "column",
-    backgroundColor: "#000033",
+    backgroundColor: "rgba(255,255,255,0.5)",
     gap: "10px",
   },
+  timerClass: {
+    width: "70%",
+    display: "flex",
+    borderRadius: "13px",
+    padding: "0 10px",
+    height: "15px",
+    gap: "5px",
+    backgroundColor: "rgba(255,255,255,0.6)",
+    alignItems: "center",
+    justifyContent: "center",
+  },
   timerInner: {
+    height: "100%",
     width: "70%",
     padding: "30px",
     display: "flex",
-    alignItems: "left",
-    gap: "20px",
+    alignItems: "center",
+    gap: "10px",
     justifyContent: "center",
     fontSize: "1.3rem",
     fontWeight: "800",
@@ -24,12 +34,11 @@ const styles = {
   },
   hours: {
     width: "30%",
-    height: "50px",
+    height: "10px",
     display: "flex",
     alignItems: "center",
-    padding: "0 20px",
     borderRadius: "13px",
-    border: "1px solid white",
+    border: "1px solid black",
     background: (props) => {
       return `linear-gradient(to right,Turquoise 0%,Turquoise ${
         (props.time.hrs * 100) / 24
@@ -37,13 +46,12 @@ const styles = {
     },
   },
   seconds: {
-    width: "70%",
-    height: "50px",
+    width: "90%",
+    height: "10px",
     display: "flex",
     alignItems: "center",
-    padding: "0 20px",
     borderRadius: "13px",
-    border: "1px solid white",
+    border: "1px solid black",
     color: (props) => {},
     background: (props) => {
       return `linear-gradient(to right,#D2E9E9 0%,#27E1C1 ${
@@ -52,13 +60,12 @@ const styles = {
     },
   },
   minutes: {
-    width: "50%",
-    height: "50px",
+    width: "60%",
+    height: "10px",
     display: "flex",
     alignItems: "center",
-    padding: "0 20px",
     borderRadius: "13px",
-    border: "1px solid white",
+    border: "1px solid black",
     background: (props) => {
       return `linear-gradient(to right,Turquoise 0%,Turquoise ${
         (props.time.min * 100) / 60
@@ -76,22 +83,29 @@ const styles = {
     border: "1px solid white",
   },
   button: {
-    width: "120px",
-    height: "30px",
-    backgroundColor: "Turquoise",
+    width: "30px",
+    height: "20px",
+    color: "black",
+    backgroundColor: "turquoise",
     border: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     padding: "5px 10px",
     borderRadius: "3px",
   },
   buttons: {
+    width: "100%",
     display: "flex",
-    gap: "20px",
+    gap: "5px",
     justifyContent: "center",
+    flexWrap: "wrap",
   },
   select: {
-    width: "200px",
-    height: "30px",
-    backgroundColor: "Turquoise",
+    width: "100px",
+    height: "20px",
+    color: "white",
+    backgroundColor: "black",
   },
 };
 

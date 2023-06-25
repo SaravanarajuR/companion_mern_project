@@ -20,10 +20,14 @@ class Todo extends Component {
     });
   };
   componentDidMount() {
-    document.addEventListener("submit", this.addListener);
+    document
+      .getElementById("todoForm")
+      .addEventListener("submit", this.addListener);
   }
   componentWillUnmount() {
-    document.removeEventListener("submit", this.addListener);
+    document
+      .getElementById("todoForm")
+      .removeEventListener("submit", this.addListener);
   }
   handleTasks = () => {
     return this.state.tasks.map((k, ind) => {
@@ -42,7 +46,7 @@ class Todo extends Component {
     const { classes } = this.props;
     return (
       <div className={classes.parent}>
-        <form className={classes.form}>
+        <form id="todoForm" className={classes.form}>
           <input className={classes.input} id="task" required />
           <input
             className={classes.input}

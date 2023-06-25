@@ -34,9 +34,12 @@ const Styles = {
   menuIcon: {
     position: "absolute",
     right: "10px",
-    color: "rgba(255,255,255,0.7)",
+    color: "#000",
     top: "11px",
-    fontSize: "2.6rem",
+    borderRadius: "5px",
+    fontSize: "1.5rem",
+    padding: "7px 7px 4px 7px",
+    backgroundColor: "rgba(255,255,255,0.7)",
   },
   backText: {
     fontFamily: "'Belanosima', sans-serif;",

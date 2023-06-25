@@ -1,5 +1,5 @@
 import { Component } from "react";
-import Clock from "../tools/elements/timerClock";
+import Clock from "./stopWatch";
 
 class Timer extends Component {
   constructor() {

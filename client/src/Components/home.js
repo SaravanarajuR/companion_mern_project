@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import { withStyles } from "@material-ui/styles";
 import styles from "../tools/jss/homeStyles";
-import Timer from "./timer";
+import StopWatch from "../tools/elements/stopWatch";
 import Menu from "../tools/elements/menu";
 import Youtube from "../tools/elements/youtube";
+import Code from "../tools/elements/codeSandBox";
+import window from "global";
+import Timer from "../tools/elements/timer";
 
 class Home extends Component {
   constructor() {
@@ -14,9 +17,25 @@ class Home extends Component {
       timer: false,
       youtube: false,
       menu: false,
-      utube: "",
+      utube: false,
+      stopwatch: false,
       fullScreen: false,
+      code: false,
+      windowWidth: window.innerWidth - 100,
+      windowHeight: window.innerHeight - 200,
     };
+  }
+  handleWindow = () => {
+    this.setState({
+      windowWidth: window.innerWidth - 100,
+      windowHeight: window.innerHeight - 100,
+    });
+  };
+  componentDidMount() {
+    window.addEventListener("resize", this.handleWindow);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleWindow);
   }
   handleVisibility = (e) => {
     this.setState({ [e.target.id]: !this.state[e.target.id] });
@@ -75,8 +94,15 @@ class Home extends Component {
             ""
           )}
         </div>
-        {this.state.timer ? <Timer /> : ""}
-        {this.state.utube ? <Youtube /> : ""}
+        {this.state.stopwatch ? <StopWatch /> : ""}
+        {this.state.utube ? (
+          <Youtube
+            windowWidth={this.state.windowWidth}
+            windowHeight={this.state.windowHeight}
+          />
+        ) : (
+          ""
+        )}
         {this.state.menu ? (
           <Menu
             handleVisibility={this.handleVisibility}
@@ -92,10 +118,12 @@ class Home extends Component {
             <i
               id="menu"
               onClick={this.handleMenu}
-              className="fa-solid fa-square-caret-down"
+              className="fa-solid fa-bars"
             ></i>
           </div>
         )}
+        {this.state.timer ? <Timer /> : ""}
+        {this.state.code ? <Code /> : ""}
       </div>
     );
   }
