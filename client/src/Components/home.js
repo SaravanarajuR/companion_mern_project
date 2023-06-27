@@ -7,6 +7,7 @@ import Youtube from "../tools/elements/youtube";
 import Code from "../tools/elements/codeSandBox";
 import window from "global";
 import Timer from "../tools/elements/timer";
+import Clock from "../tools/elements/clock";
 
 class Home extends Component {
   constructor() {
@@ -19,16 +20,18 @@ class Home extends Component {
       menu: false,
       utube: false,
       stopwatch: false,
+      mech: false,
       fullScreen: false,
+      clock: false,
       code: false,
       windowWidth: window.innerWidth - 100,
-      windowHeight: window.innerHeight - 200,
+      windowHeight: window.innerHeight - 300,
     };
   }
   handleWindow = () => {
     this.setState({
       windowWidth: window.innerWidth - 100,
-      windowHeight: window.innerHeight - 100,
+      windowHeight: window.innerHeight - 300,
     });
   };
   componentDidMount() {
@@ -94,6 +97,7 @@ class Home extends Component {
             ""
           )}
         </div>
+        <Clock />
         {this.state.stopwatch ? <StopWatch /> : ""}
         {this.state.utube ? (
           <Youtube

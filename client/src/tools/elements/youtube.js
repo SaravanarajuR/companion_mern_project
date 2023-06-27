@@ -35,6 +35,17 @@ class Youtube extends Component {
     this.setState({ width: e.target[0].value, height: e.target[1].value });
   };
   render() {
+    console.log(
+      this.state.link
+        ? this.state.link
+            .split("com")
+            .join("com/embed")
+            .split("watch?v=")
+            .join("")
+            .split("&")[0]
+            .replace(" ", "")
+        : ""
+    );
     const { classes } = this.props;
     return (
       <div className={classes.parent}>
@@ -51,7 +62,9 @@ class Youtube extends Component {
                 .split("com")
                 .join("com/embed")
                 .split("watch?v=")
-                .join("")}
+                .join("")
+                .split("&")[0]
+                .replace(" ", "")}
               title="window"
             />
             <button className={classes.button} onClick={this.changeVideo}>

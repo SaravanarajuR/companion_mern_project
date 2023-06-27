@@ -1,7 +1,7 @@
 import { Component } from "react";
-import Clock from "./stopWatch";
+import Clock from "./stopWatchModel";
 
-class Timer extends Component {
+class stopWatch extends Component {
   constructor() {
     super();
     this.state = {
@@ -15,14 +15,15 @@ class Timer extends Component {
   }
 
   componentDidMount() {
+    console.log("hi");
     const intervalId = setInterval(() => {
       this.setState({
-        sec: this.state.sec + 0.1,
-        s: this.state.s + 0.1 >= 60 ? 0 : this.state.s + 0.1,
+        sec: this.state.sec + 1,
+        s: this.state.s + 1 >= 60 ? 0 : this.state.s + 1,
         min: Math.floor(this.state.sec / 60 === 60 ? 0 : this.state.sec / 60),
         hrs: Math.floor(this.state.sec / (60 * 60)),
       });
-    }, 100);
+    }, 1000);
     this.setState({ interval: intervalId });
   }
 
@@ -58,4 +59,4 @@ class Timer extends Component {
     );
   }
 }
-export default Timer;
+export default stopWatch;

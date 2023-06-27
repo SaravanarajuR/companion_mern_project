@@ -61,6 +61,11 @@ class Menu extends Component {
           ></i>
           <i className="fa-solid fa-paint-roller"></i>
           <i id="code" className="fa-solid fa-laptop-code"></i>
+          <i
+            id="mech"
+            onClick={this.props.handleVisibility}
+            className="fa-solid fa-keyboard"
+          ></i>
         </div>
       </div>
     );

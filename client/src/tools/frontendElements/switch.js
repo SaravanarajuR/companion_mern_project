@@ -1,18 +1,19 @@
 import React from "react";
 import { withStyles } from "@material-ui/styles";
-import Styles from "../jss/switch";
+import Styles from "../jss/switchStyles";
 
-function Tool(props) {
+function Switch(props) {
   const handleCheck = () => {
-    const check = document.getElementById("checkbox");
+    const check = document.getElementById(`${props.id}`);
     check.checked = !check.checked;
+    props.change();
   };
   const { classes } = props;
   return (
     <div>
       <div className={classes.switchOuter} onClick={handleCheck}>
         <input
-          id="checkbox"
+          id={props.id}
           type="checkbox"
           onClick={handleCheck}
           className={classes.switch}
@@ -22,4 +23,4 @@ function Tool(props) {
   );
 }
 
-export default withStyles(Styles)(Tool);
+export default withStyles(Styles)(Switch);
