@@ -63,7 +63,7 @@ class Home extends Component {
   };
   changeBackground = (e) => {
     e.stopPropagation();
-    try {
+    if (e.target.files[0]) {
       let image = e.target.files[0];
       let fr = new FileReader();
       new Promise(() => {
@@ -72,8 +72,6 @@ class Home extends Component {
           this.setState({ image: fr.result });
         };
       });
-    } catch (err) {
-      console.log("error");
     }
   };
   render() {
