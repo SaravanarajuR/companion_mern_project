@@ -38,11 +38,26 @@ class Clock extends Component {
     const { classes } = this.props;
     return (
       <div className={classes.clock}>
-        <Switch id="format" change={this.changeFormat} />
+        <i className={`fa-solid fa-square-minus ${classes.mini}`}></i>
+        <div className={classes.switchParent}>
+          <span>Format</span>
+          <div className={classes.switch}>
+            <span>24</span>
+            <Switch
+              id="format"
+              switchHeight="14px"
+              switchWidth="15px"
+              width="40px"
+              height="15px"
+              change={this.changeFormat}
+            />
+            <span>12</span>
+          </div>
+        </div>
         <div className={classes.clockInner}>
           <p className={classes.clockText}>{this.state.hrs}</p>
           <p className={classes.clockText}>{this.state.mins}</p>
-          <p className={classes.clockText}>{this.state.secs}</p>
+          <p className={classes.clockText}>{this.state.secs}</p>{" "}
           {this.state.format === 12 ? (
             <p className={classes.clockText}>{this.state.session}</p>
           ) : (

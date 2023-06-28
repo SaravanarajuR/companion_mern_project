@@ -10,15 +10,13 @@ function Switch(props) {
   };
   const { classes } = props;
   return (
-    <div>
-      <div className={classes.switchOuter} onClick={handleCheck}>
-        <input
-          id={props.id}
-          type="checkbox"
-          onClick={handleCheck}
-          className={classes.switch}
-        />
-      </div>
+    <div className={classes.switchOuter} onClick={handleCheck}>
+      <input
+        id={props.id}
+        type="checkbox"
+        onClick={handleCheck}
+        className={classes.switch}
+      />
     </div>
   );
 }

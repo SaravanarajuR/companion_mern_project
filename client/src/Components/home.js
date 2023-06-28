@@ -8,22 +8,23 @@ import Code from "../tools/elements/codeSandBox";
 import window from "global";
 import Timer from "../tools/elements/timer";
 import Clock from "../tools/elements/clock";
+import TaskBar from "../tools/elements/taskBar";
 
 class Home extends Component {
   constructor() {
     super();
     this.state = {
       image: "",
-      wallpaper: false,
-      timer: false,
-      youtube: false,
-      menu: false,
-      utube: false,
-      stopwatch: false,
-      mech: false,
-      fullScreen: false,
-      clock: false,
-      code: false,
+      timer: [false, true],
+      youtube: [false, true],
+      menu: [false, true],
+      utube: [false, true],
+      stopwatch: [false, true],
+      mech: [false, true],
+      fullScreen: [false, true],
+      clock: [false, true],
+      code: [false, true],
+      taskbar: true,
       windowWidth: window.innerWidth - 100,
       windowHeight: window.innerHeight - 300,
     };
@@ -41,26 +42,39 @@ class Home extends Component {
     window.removeEventListener("resize", this.handleWindow);
   }
   handleVisibility = (e) => {
-    this.setState({ [e.target.id]: !this.state[e.target.id] });
+    e.stopPropagation();
+    const arr = this.state[e.target.id];
+    arr[0] = !arr[0];
+    this.setState({ [e.target.id]: arr });
   };
-  handleFullScreen = () => {
-    if (this.state.fullScreen) {
+  handleFullScreen = (e) => {
+    e.stopPropagation();
+    if (this.state.fullScreen[0]) {
       document.exitFullscreen();
-      this.setState({ fullScreen: false });
+      const arr = this.state[`fullScreen`];
+      arr[0] = !arr[0];
+      this.setState({ fullScreen: arr });
     } else {
       document.getElementById("root").requestFullscreen();
-      this.setState({ fullScreen: true });
+      const arr = this.state[`fullScreen`];
+      arr[0] = !arr[0];
+      this.setState({ fullScreen: arr });
     }
   };
   changeBackground = (e) => {
-    let image = e.target.files[0];
-    let fr = new FileReader();
-    new Promise(() => {
-      fr.readAsDataURL(image);
-      fr.onload = () => {
-        this.setState({ image: fr.result, wallpaper: false });
-      };
-    });
+    e.stopPropagation();
+    try {
+      let image = e.target.files[0];
+      let fr = new FileReader();
+      new Promise(() => {
+        fr.readAsDataURL(image);
+        fr.onload = () => {
+          this.setState({ image: fr.result });
+        };
+      });
+    } catch (err) {
+      console.log("error");
+    }
   };
   render() {
     const { classes } = this.props;
@@ -71,35 +85,22 @@ class Home extends Component {
     };
     return (
       <div id="top" style={bg} className={classes.home}>
-        <div
-          id="wallpaper"
-          onClick={this.handleVisibility}
-          className={classes.backParent}
-        >
-          <div id="wallpaper" className={classes.back}>
-            <p id="wallpaper" className={classes.backText}>
-              Choose Custom Background
-            </p>
+        <div className={classes.backParent}>
+          <label id="visibility" className={classes.customInputButton}>
+            <input
+              accept=".png, .jpg, .jpeg"
+              className={classes.inp}
+              onChange={this.changeBackground}
+              type="file"
+              id="image"
+            />
+            Choose a Custom background
             <i value="wallpaper" className="fa-solid fa-image"></i>
-          </div>
-          {this.state.wallpaper ? (
-            <label id="visibility" className={classes.customInputButton}>
-              <input
-                accept=".png, .jpg, .jpeg"
-                className={classes.inp}
-                onChange={this.changeBackground}
-                type="file"
-                id="image"
-              />
-              Choose an image
-            </label>
-          ) : (
-            ""
-          )}
+          </label>
         </div>
         <Clock />
-        {this.state.stopwatch ? <StopWatch /> : ""}
-        {this.state.utube ? (
+        {this.state.stopwatch[0] ? <StopWatch /> : ""}
+        {this.state.utube[0] ? (
           <Youtube
             windowWidth={this.state.windowWidth}
             windowHeight={this.state.windowHeight}
@@ -107,7 +108,7 @@ class Home extends Component {
         ) : (
           ""
         )}
-        {this.state.menu ? (
+        {this.state.menu[0] ? (
           <Menu
             handleVisibility={this.handleVisibility}
             handleMenu={this.handleMenu}
@@ -126,8 +127,15 @@ class Home extends Component {
             ></i>
           </div>
         )}
-        {this.state.timer ? <Timer /> : ""}
-        {this.state.code ? <Code /> : ""}
+        {this.state.timer[0] ? <Timer /> : ""}
+        {this.state.code[0] ? <Code /> : ""}
+        {this.state.taskbar ? (
+          <TaskBar />
+        ) : (
+          <div className={classes.taskbar}>
+            <i className="fa-solid fa-angles-up"></i>{" "}
+          </div>
+        )}
       </div>
     );
   }

@@ -10,6 +10,9 @@ class Code extends Component {
     const { classes } = this.props;
     return (
       <div className={classes.code}>
+        <div>
+          <i className={`fa-solid fa-square-minus ${classes.mini}`}></i>
+        </div>
         <iframe
           width="100%"
           height="100%"

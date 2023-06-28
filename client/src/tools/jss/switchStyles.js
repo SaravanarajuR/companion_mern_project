@@ -1,7 +1,11 @@
 const Styles = {
   switch: {
-    height: "20px",
-    width: "20px",
+    height: (props) => {
+      return props.switchHeight;
+    },
+    width: (props) => {
+      return props.switchWidth;
+    },
     margin: 0,
     position: "absolute",
     appearance: "none",
@@ -15,8 +19,12 @@ const Styles = {
     },
   },
   switchOuter: {
-    width: "50px",
-    height: "23px",
+    width: (props) => {
+      return props.width;
+    },
+    height: (props) => {
+      return props.height;
+    },
     backgroundColor: "black",
     cursor: "pointer",
     display: "flex",
