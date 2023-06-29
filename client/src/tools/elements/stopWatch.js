@@ -1,5 +1,7 @@
 import { Component } from "react";
 import StopWatchModel from "./stopWatchModel";
+import { withStyles } from "@material-ui/styles";
+import styles from "../jss/stopWatchStyles";
 
 class stopWatch extends Component {
   constructor() {
@@ -48,16 +50,20 @@ class stopWatch extends Component {
     this.setState({ s: 0, sec: 0, hrs: 0, min: 0, lap: [] });
   };
   render() {
+    const { classes } = this.props;
     return (
-      <StopWatchModel
-        time={this.state}
-        stop={this.handleStop}
-        resume={this.handleResume}
-        addLap={this.handleLap}
-        reset={this.handlereset}
-        minimise={this.props.minimise}
-      />
+      <div className={classes.timer}>
+        <StopWatchModel
+          time={this.state}
+          state={this.props.state}
+          stop={this.handleStop}
+          resume={this.handleResume}
+          addLap={this.handleLap}
+          reset={this.handlereset}
+          minimise={this.props.minimise}
+        />
+      </div>
     );
   }
 }
-export default stopWatch;
+export default withStyles(styles)(stopWatch);

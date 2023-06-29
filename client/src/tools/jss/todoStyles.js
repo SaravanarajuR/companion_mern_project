@@ -1,68 +1,65 @@
-const styles = {
-  input: {
-    width: "240px",
-    padding: "4px 15px",
-    height: "7%",
-    appearance: "none",
-    backgroundColor: "rgba(255,255,255,0.6)",
-    border: "none",
-    borderRadius: "3px",
-    "&:focus": {
-      border: "none",
-      backgroundColor: "rgba(255,255,255,0.5)",
-    },
-  },
-  form: {
+import { createStyles } from "@material-ui/styles";
+const styles = createStyles({
+  parent: {
+    backgroundColor: "rgba(255,255,255,0.3)",
+    borderRadius: "10px",
+    height: "400px",
+    width: "300px",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    position: "absolute",
+    top: "10px",
+    left: "10px",
     display: "flex",
-    gap: "20px",
+    gap: "10px",
+  },
+  inp: {
+    display: "flex",
+    justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
+    gap: "10px",
   },
-  parent: {
-    backgroundColor: "#000033",
-    width: "90%",
-    height: "90%",
-    padding: "20px",
-    borderRadius: "10px",
-  },
-  button: {
-    width: "100px",
-    height: "30px",
-    backgroundColor: "rgba(255,255,255,0.5)",
-    border: "none",
-    borderRadius: "3px",
-  },
-  list: {
-    overflow: "auto",
-    height: "70%",
+  timeInp: {
     display: "flex",
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
-    flexWrap: "wrap",
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: "1.3rem",
+    width: "50px",
+    textAlign: "center",
+    fontWeight: "700",
+    height: "50px",
+    borderRadius: "10px",
+    border: "none",
   },
-  task: {
-    flexDirection: "column",
+  time: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: "5px",
-    width: "45%",
-    height: "150px",
-    backgroundColor: "rgba(255,255,255,0.5)",
+    gap: "10px",
   },
-  font: {
-    fontFamily: "georgia",
-    fontSize: "1.2rem",
-    color: "white",
-  },
-  dis: {
+  taskInp: {
+    color: "black",
     padding: "5px 10px",
-    borderRadius: "3px",
-    backgroundColor: "white",
-    width: "60px",
-    display: "flex",
-    justifyContent: "space-around",
+    width: "160px",
+    borderRadius: "10px",
+    height: "25px",
   },
-};
+  tasks: {
+    display: "flex",
+    flexDirection: "column",
+    height: "200px",
+    overflowY: "auto",
+    "&::-webkit-scrollbar": {
+      width: "5px",
+      backgroundColor: "white",
+    },
+    "&::-webkit-scrollbar-thumb": {
+      backgroundColor: "black",
+      width: "5px",
+    },
+  },
+});
 
 export default styles;

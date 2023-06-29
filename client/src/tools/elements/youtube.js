@@ -35,17 +35,6 @@ class Youtube extends Component {
     this.setState({ width: e.target[0].value, height: e.target[1].value });
   };
   render() {
-    console.log(
-      this.state.link
-        ? this.state.link
-            .split("com")
-            .join("com/embed")
-            .split("watch?v=")
-            .join("")
-            .split("&")[0]
-            .replace(" ", "")
-        : ""
-    );
     const { classes } = this.props;
     return (
       <div className={classes.parent}>
@@ -55,6 +44,11 @@ class Youtube extends Component {
             height={this.state.height}
             className={classes.utube}
           >
+            <i
+              id="utube"
+              onClick={this.props.minimise}
+              className={`fa-solid fa-square-minus ${classes.mini}`}
+            ></i>
             <iframe
               width={this.state.width}
               height={this.state.height}
@@ -107,6 +101,11 @@ class Youtube extends Component {
           </div>
         ) : (
           <form id="linkForm" className={classes.form}>
+            <i
+              id="utube"
+              onClick={this.props.minimise}
+              className={`fa-solid fa-square-minus ${classes.mini}`}
+            ></i>
             <input
               autoComplete="off"
               className={classes.input}

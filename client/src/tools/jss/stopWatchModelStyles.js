@@ -1,5 +1,6 @@
 const styles = {
   timer: {
+    marginTop: "10px",
     width: "100%",
     height: "100%",
     display: "flex",
@@ -105,6 +106,13 @@ const styles = {
     width: "200px",
     backgroundColor: "rgba(255,255,255,0.4)",
     borderRadius: "10px",
+  },
+  mini: {
+    position: "absolute",
+    color: "rgba(0,0,0,0.7)",
+    top: "5px",
+    fontSize: "1.7rem",
+    right: "5px",
   },
 };
 

@@ -1,4 +1,24 @@
 const styles = {
+  parent: {
+    contentVisibility: (props) => {
+      return props.state.timer[1] ? "visible" : "hidden";
+    },
+    visibility: (props) => {
+      return props.state.timer[1] ? "visible" : "hidden";
+    },
+    width: "250px",
+    backgroundColor: "rgba(255,255,255,0.4)",
+    padding: "15px",
+    position: "absolute",
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+    top: "10px",
+    left: "10px",
+    borderRadius: "10px",
+    maxHeight: "90%",
+    overflowY: "auto",
+  },
   input: {
     width: "50px",
     height: "50px",
@@ -20,20 +40,7 @@ const styles = {
     alignItems: "center",
     gap: "10px",
   },
-  parent: {
-    width: "250px",
-    backgroundColor: "rgba(255,255,255,0.4)",
-    padding: "15px",
-    position: "absolute",
-    display: "flex",
-    flexDirection: "column",
-    gap: "10px",
-    top: "10px",
-    left: "10px",
-    borderRadius: "10px",
-    maxHeight: "90%",
-    overflowY: "auto",
-  },
+
   timerInp: {
     flexDirection: "column",
     display: "flex",
@@ -91,6 +98,13 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     padding: "10px 0",
+  },
+  mini: {
+    position: "absolute",
+    color: "rgba(0,0,0,0.7)",
+    top: "5px",
+    fontSize: "1.7rem",
+    right: "5px",
   },
 };
 

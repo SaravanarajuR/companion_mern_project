@@ -8,6 +8,7 @@ import Code from "../tools/elements/codeSandBox";
 import window from "global";
 import Timer from "../tools/elements/timer";
 import Clock from "../tools/elements/clock";
+import Todo from "../tools/elements/todoList";
 import TaskBar from "../tools/elements/taskBar";
 
 class Home extends Component {
@@ -114,8 +115,13 @@ class Home extends Component {
         ) : (
           ""
         )}
+        {this.state.todo[0] ? (
+          <Todo state={this.state} minimise={this.handleMinimise} />
+        ) : (
+          ""
+        )}
         {this.state.stopwatch[0] ? (
-          <StopWatch minimise={this.handleMinimise} />
+          <StopWatch state={this.state} minimise={this.handleMinimise} />
         ) : (
           ""
         )}

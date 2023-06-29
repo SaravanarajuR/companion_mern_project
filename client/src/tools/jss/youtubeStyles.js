@@ -13,18 +13,24 @@ const styles = {
     border: "none",
   },
   form: {
-    width: "100%",
-    height: "100%",
+    width: "300px",
+    height: "90px",
     borderRadius: "5px",
     display: "flex",
     flexDirection: "column",
     padding: "20px",
-    gap: "5px",
-    justifyContent: "center",
+    gap: "15px",
+    justifyContent: "flex-end",
     alignItems: "center",
     backgroundColor: "rgba(255,255,255,0.3)",
   },
   parent: {
+    contentVisibility: (props) => {
+      return props.state.utube[1] ? "visible" : "hidden";
+    },
+    visibility: (props) => {
+      return props.state.utube[1] ? "visible" : "hidden";
+    },
     position: "absolute",
     top: "10px",
     left: "10px",
@@ -46,6 +52,13 @@ const styles = {
     flexDirection: "column",
     padding: "10px",
     alignItems: "center",
+  },
+  mini: {
+    color: "rgba(0,0,0,0.7)",
+    fontSize: "1.7rem",
+    position: "absolute",
+    top: "5px",
+    right: "5px",
   },
 };
 

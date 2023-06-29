@@ -17,12 +17,12 @@ class Code extends Component {
             className={`fa-solid fa-square-minus ${classes.mini}`}
           ></i>
         </div>
-        <iframe
+        <embed
           width="100%"
           height="100%"
           title="code"
           src={this.props.link}
-        ></iframe>
+        ></embed>
       </div>
     );
   }

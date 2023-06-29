@@ -6,6 +6,7 @@ function Timer(props) {
   const [time, setTime] = useState({});
   const [currentTime, setCurrentTime] = useState();
   const [intervalId, setIntervalId] = useState();
+  console.log(props);
   const { classes } = props;
 
   useEffect(() => {
@@ -79,7 +80,7 @@ function Timer(props) {
     <div className={classes.parent}>
       <i
         id="timer"
-        onClick={this.props.minimise}
+        onClick={props.minimise}
         className={`fa-solid fa-square-minus ${classes.mini}`}
       ></i>
       <form id="timerForm" className={classes.form} onSubmit={handleSubmit}>
