@@ -11,7 +11,11 @@ class Code extends Component {
     return (
       <div className={classes.code}>
         <div>
-          <i className={`fa-solid fa-square-minus ${classes.mini}`}></i>
+          <i
+            id="code"
+            onClick={this.props.minimise}
+            className={`fa-solid fa-square-minus ${classes.mini}`}
+          ></i>
         </div>
         <iframe
           width="100%"

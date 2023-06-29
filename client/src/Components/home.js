@@ -18,13 +18,17 @@ class Home extends Component {
       timer: [false, true],
       youtube: [false, true],
       menu: [false, true],
+      todo: [false, true],
       utube: [false, true],
+      calc: [false, true],
       stopwatch: [false, true],
+      notes: [false, true],
       mech: [false, true],
       fullScreen: [false, true],
       clock: [false, true],
       code: [false, true],
-      taskbar: true,
+      taskbar: false,
+      music: [false, true],
       windowWidth: window.innerWidth - 100,
       windowHeight: window.innerHeight - 300,
     };
@@ -61,6 +65,12 @@ class Home extends Component {
       this.setState({ fullScreen: arr });
     }
   };
+  handleMinimise = (e) => {
+    e.stopPropagation();
+    const arr = this.state[e.target.id];
+    arr[1] = !arr[1];
+    this.setState({ [e.target.id]: arr });
+  };
   changeBackground = (e) => {
     e.stopPropagation();
     if (e.target.files[0]) {
@@ -73,6 +83,9 @@ class Home extends Component {
         };
       });
     }
+  };
+  closeBar = () => {
+    this.setState({ taskbar: !this.state.taskbar });
   };
   render() {
     const { classes } = this.props;
@@ -96,10 +109,20 @@ class Home extends Component {
             <i value="wallpaper" className="fa-solid fa-image"></i>
           </label>
         </div>
-        <Clock />
-        {this.state.stopwatch[0] ? <StopWatch /> : ""}
+        {this.state.clock[0] ? (
+          <Clock state={this.state} minimise={this.handleMinimise} />
+        ) : (
+          ""
+        )}
+        {this.state.stopwatch[0] ? (
+          <StopWatch minimise={this.handleMinimise} />
+        ) : (
+          ""
+        )}
         {this.state.utube[0] ? (
           <Youtube
+            state={this.state}
+            minimise={this.handleMinimise}
             windowWidth={this.state.windowWidth}
             windowHeight={this.state.windowHeight}
           />
@@ -125,13 +148,25 @@ class Home extends Component {
             ></i>
           </div>
         )}
-        {this.state.timer[0] ? <Timer /> : ""}
-        {this.state.code[0] ? <Code /> : ""}
-        {this.state.taskbar ? (
-          <TaskBar />
+        {this.state.timer[0] ? (
+          <Timer minimise={this.handleMinimise} state={this.state} />
         ) : (
-          <div className={classes.taskbar}>
-            <i className="fa-solid fa-angles-up"></i>{" "}
+          ""
+        )}
+        {this.state.code[0] ? (
+          <Code state={this.state} minimise={this.handleMinimise} />
+        ) : (
+          ""
+        )}
+        {this.state.taskbar ? (
+          <TaskBar
+            state={this.state}
+            minimise={this.handleMinimise}
+            closeBar={this.closeBar}
+          />
+        ) : (
+          <div className={classes.taskbar} onClick={this.closeBar}>
+            <i className="fa-solid fa-angles-up"></i>
           </div>
         )}
       </div>

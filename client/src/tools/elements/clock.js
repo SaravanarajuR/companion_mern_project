@@ -38,7 +38,11 @@ class Clock extends Component {
     const { classes } = this.props;
     return (
       <div className={classes.clock}>
-        <i className={`fa-solid fa-square-minus ${classes.mini}`}></i>
+        <i
+          onClick={this.props.minimise}
+          id="clock"
+          className={`fa-solid fa-square-minus ${classes.mini}`}
+        ></i>
         <div className={classes.switchParent}>
           <span>Format</span>
           <div className={classes.switch}>

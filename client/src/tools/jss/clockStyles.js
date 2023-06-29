@@ -1,5 +1,11 @@
 const styles = {
   clock: {
+    visibility: (props) => {
+      return props.state.clock[1] ? "visible" : "hidden";
+    },
+    contentVisibility: (props) => {
+      return props.state.clock[1] ? "visible" : "hidden";
+    },
     width: "200px",
     display: "flex",
     flexDirection: "column",

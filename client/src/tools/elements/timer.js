@@ -77,6 +77,11 @@ function Timer(props) {
 
   return (
     <div className={classes.parent}>
+      <i
+        id="timer"
+        onClick={this.props.minimise}
+        className={`fa-solid fa-square-minus ${classes.mini}`}
+      ></i>
       <form id="timerForm" className={classes.form} onSubmit={handleSubmit}>
         <div className={classes.timerInp}>
           <div className={classes.numInp}>

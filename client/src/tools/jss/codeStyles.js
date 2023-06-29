@@ -1,5 +1,11 @@
 const Styles = {
   code: {
+    visibility: (props) => {
+      return props.state.code[1] ? "visible" : "hidden";
+    },
+    contentVisibility: (props) => {
+      return props.state.code[1] ? "visible" : "hidden";
+    },
     width: "80%",
     height: "80%",
     position: "absolute",

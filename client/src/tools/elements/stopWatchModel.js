@@ -13,6 +13,11 @@ class StopWatchModel extends Component {
     console.log(this.props);
     return (
       <div className={classes.parent}>
+        <i
+          id="stopwatch"
+          onClick={this.props.minimise}
+          className={`fa-solid fa-square-minus ${classes.mini}`}
+        ></i>
         <div className={classes.timer}>
           <div className={classes.timerInner}>
             <div className={classes.timeSet}>

@@ -1,66 +1,39 @@
 import { withStyles } from "@material-ui/styles";
 import React, { Component } from "react";
 import styles from "../jss/taskbarStyles";
+import data from "../../data";
+import { v4 } from "uuid";
 
 class Taskbar extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+  handleRender = () => {
+    const { classes } = this.props;
+    return Object.keys(data).map((k) => {
+      if (this.props.state[`${k}`][1] === false) {
+        return (
+          <div
+            className={classes.task}
+            key={v4()}
+            id={k}
+            onClick={this.props.minimise}
+          >
+            <i id={k} className={data[`${k}`]} />
+          </div>
+        );
+      } else {
+        return null;
+      }
+    });
+  };
   render() {
     const { classes } = this.props;
     return (
-      <div className={classes.taskbar}>
+      <div onClick={this.props.closeBar} className={classes.taskbar}>
         <span className={`fa-solid fa-angles-down ${classes.close}`}></span>
-        <div onClick={this.props.handleVisibility} className={classes.tasks}>
-          <i
-            onClick={this.props.handleVisibility}
-            id="clock"
-            className="fa-solid fa-clock"
-          ></i>
-          <i
-            onClick={this.props.handleVisibility}
-            id="stopwatch"
-            className="fa-solid fa-stopwatch-20"
-          ></i>
-          <i
-            onClick={this.props.handleVisibility}
-            id="timer"
-            className="fa-solid fa-bell"
-          ></i>
-          <i
-            onClick={this.props.handleVisibility}
-            id="todo"
-            className="fa-solid fa-clipboard-list"
-          ></i>
-          <i
-            onClick={this.props.handleVisibility}
-            id="calc"
-            className="fa-solid fa-calculator"
-          ></i>
-          <i
-            onClick={this.props.handleVisibility}
-            id="notes"
-            className="fa-solid fa-note-sticky"
-          ></i>
-          <i
-            onClick={this.props.handleVisibility}
-            id="utube"
-            className="fa-brands fa-youtube"
-          ></i>
-          <i
-            onClick={this.props.handleVisibility}
-            id="music"
-            className="fa-solid fa-music"
-          ></i>
-          <i
-            className="fa-solid fa-up-right-and-down-left-from-center"
-            onClick={this.props.fs}
-          ></i>
-          <i className="fa-solid fa-paint-roller"></i>
-          <i id="code" className="fa-solid fa-laptop-code"></i>
-          <i
-            id="mech"
-            onClick={this.props.handleVisibility}
-            className="fa-solid fa-keyboard"
-          ></i>
-        </div>
+        <div className={classes.tasks}>{this.handleRender()}</div>
       </div>
     );
   }

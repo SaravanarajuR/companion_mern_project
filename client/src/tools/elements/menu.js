@@ -7,11 +7,11 @@ class Menu extends Component {
     const { classes } = this.props;
     return (
       <div width="100%" height="100%">
-        <div onClick={this.props.handleVisibility} className={classes.menu}>
+        <div className={classes.menu}>
           <div id="menu" className={classes.close}>
             <i
               id="menu"
-              onClick={this.props.handleMenu}
+              onClick={this.props.handleVisibility}
               className="fa-solid fa-circle-xmark"
             ></i>
           </div>
@@ -60,7 +60,11 @@ class Menu extends Component {
             onClick={this.props.fs}
           ></i>
           <i className="fa-solid fa-paint-roller"></i>
-          <i id="code" className="fa-solid fa-laptop-code"></i>
+          <i
+            id="code"
+            onClick={this.props.handleVisibility}
+            className="fa-solid fa-laptop-code"
+          ></i>
           <i
             id="mech"
             onClick={this.props.handleVisibility}

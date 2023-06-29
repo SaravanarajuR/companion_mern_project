@@ -1,5 +1,5 @@
 import { Component } from "react";
-import Clock from "./stopWatchModel";
+import StopWatchModel from "./stopWatchModel";
 
 class stopWatch extends Component {
   constructor() {
@@ -49,12 +49,13 @@ class stopWatch extends Component {
   };
   render() {
     return (
-      <Clock
+      <StopWatchModel
         time={this.state}
         stop={this.handleStop}
         resume={this.handleResume}
         addLap={this.handleLap}
         reset={this.handlereset}
+        minimise={this.props.minimise}
       />
     );
   }
