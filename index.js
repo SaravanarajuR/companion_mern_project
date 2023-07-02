@@ -1,9 +1,14 @@
 const http = require("http");
+const express = require("express");
+const app = express();
+const path = require("path");
 
-const server = http.createServer((req, res) => {
-  console.log(req.url);
+app.use(express.static(path.join(__dirname, "/client/build/")));
+
+app.get("/", (req, res) => {
+  res.sendFile("index.html");
 });
 
-server.listen("https://compannion.azurewebsites.net/", () => {
+app.listen("5000", () => {
   console.log("server running");
 });
