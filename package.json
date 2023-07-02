@@ -10,7 +10,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
     "build": "npm run build --prefix client",
     "server": "nodemon index",
     "clientinstall": "npm i --legacy-peer-deps --prefix client",
