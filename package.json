@@ -13,7 +13,7 @@
     "build": "npm run build --prefix client",
     "server": "nodemon index",
     "clientinstall": "npm i --legacy-peer-deps --prefix client",
-    "start": "concurrently \"npm run clientinstall & npm run build\" \"npm run server\" "
+    "start": "concurrently \"npm run clientinstall & npm run build & npm run server\" "
   },
   "keywords": [],
   "author": "",
