@@ -9,6 +9,6 @@ app.get("/", (req, res) => {
   res.sendFile("index.html");
 });
 
-app.listen("5000", () => {
+app.listen("https://compannion.azurewebsites.net/", () => {
   console.log("server running");
 });
