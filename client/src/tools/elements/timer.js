@@ -6,7 +6,6 @@ function Timer(props) {
   const [time, setTime] = useState({});
   const [currentTime, setCurrentTime] = useState();
   const [intervalId, setIntervalId] = useState();
-  console.log(props);
   const { classes } = props;
 
   useEffect(() => {

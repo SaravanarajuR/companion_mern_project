@@ -24,15 +24,8 @@ class Youtube extends Component {
       }
     });
   }
-  changeSize = () => {
-    this.setState({ size: !this.state.size });
-  };
   changeVideo = () => {
     this.setState({ link: false });
-  };
-  setSize = (e) => {
-    e.preventDefault();
-    this.setState({ width: e.target[0].value, height: e.target[1].value });
   };
   render() {
     const { classes } = this.props;
@@ -50,57 +43,23 @@ class Youtube extends Component {
               className={`fa-solid fa-square-minus ${classes.mini}`}
             ></i>
             <iframe
-              width={this.state.width}
-              height={this.state.height}
+              width="95%"
+              height="95%"
               src={this.state.link
                 .split("com")
                 .join("com/embed")
                 .split("watch?v=")
-                .join("")
-                .split("&")[0]
-                .replace(" ", "")}
+                .join("")}
               title="window"
             />
             <button className={classes.button} onClick={this.changeVideo}>
               Change video
             </button>
-            <button
-              onClick={this.changeSize}
-              id="size"
-              className={classes.button}
-            >
-              Change Size
-            </button>
-            {this.state.size ? (
-              <form
-                id="sizeForm"
-                className={classes.sizeForm}
-                onSubmit={this.setSize}
-              >
-                <input
-                  required
-                  min="0"
-                  placeholder="width"
-                  max={this.props.windowWidth}
-                  className={classes.input}
-                  type="number"
-                ></input>
-                <input
-                  required
-                  min="0"
-                  className={classes.input}
-                  placeholder="height"
-                  max={this.props.windowHeight}
-                  type="number"
-                ></input>
-                <button className={classes.button}>Change</button>
-              </form>
-            ) : (
-              ""
-            )}
+            <i className={`fa-solid fa-maximize ${classes.expand}`}></i>
           </div>
         ) : (
           <form id="linkForm" className={classes.form}>
+            <p className={classes.p}>Use only public playlist or video links</p>
             <i
               id="utube"
               onClick={this.props.minimise}

@@ -9,7 +9,6 @@ const style = {
   },
   taskbar: {
     width: "90%",
-    height: "70px",
     position: "absolute",
     borderRadius: "10px",
     bottom: "0px",
@@ -19,11 +18,11 @@ const style = {
     justifyContent: "center",
     alignItems: "center",
     animationName: "$bringTop",
-    animationTimingFunction: " linear",
-    animationDuration: "400ms",
+    animationTimingFunction: "linear",
+    animationDuration: "300ms",
   },
   tasks: {
-    backgroundColor: "rgba(255,255,255,0.5)",
+    backgroundColor: "rgba(0,0,0,0.7)",
     width: "100%",
     display: "flex",
     alignItems: "center",
@@ -36,12 +35,14 @@ const style = {
     borderRadius: "10px 10px 0 0",
   },
   close: {
-    width: "10%",
-    backgroundColor: "rgba(255,255,255,0.5)",
-    height: "15px",
-    padding: "5px",
+    width: "160px",
+    backgroundColor: "rgba(0,0,0,0.7)",
+    height: "18px",
+    padding: "10px 0 0 0",
     textAlign: "center",
+    color: "white",
     borderRadius: "4px 4px 0 0",
+    fontSize: "1.2rem",
   },
   task: {
     padding: "5px",
@@ -51,7 +52,9 @@ const style = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "rgba(0,0,0,0.4)",
+    "&:hover": {
+      backgroundColor: "rgba(255,255,255,0.2)",
+    },
   },
 };
 

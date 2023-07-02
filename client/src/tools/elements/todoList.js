@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Styles from "../jss/todoStyles";
 import { withStyles } from "@material-ui/styles";
-import Switch from "../frontendElements/switch";
 
 function Todo(props) {
   const [tasks, setTask] = useState({});
@@ -9,30 +8,49 @@ function Todo(props) {
   function handleAdd(e) {
     e.preventDefault();
     setTask((prev) => {
-      return { ...prev, [Object.keys(prev).length]: task };
+      return { ...prev, [Object.keys(prev).length]: { ...task, done: false } };
     });
   }
 
   function handleTasks() {
-    return Object.keys(tasks).map((k) => {
+    const ele = Object.keys(tasks).map((k) => {
       return (
         <div>
-          <p>{tasks[k]["task"]}</p>
-          <i className="fa-solid fa-check"></i>
-          <i className="fa-solid fa-trash"></i>
+          <p className={`${tasks[k]["done"] ? "strike" : ""}`}>
+            {tasks[k].task}
+          </p>
+          <i id={k} onClick={handleDone} className="fa-solid fa-check"></i>
+          <i id={k} onClick={handleDelete} className="fa-solid fa-trash"></i>
         </div>
       );
     });
+    return ele;
   }
 
   function handleChange(e) {
-    setNewtask((prev) => {
-      return { ...task, [e.target.id]: e.target.value };
-    });
+    setNewtask({ ...task, [e.target.id]: e.target.value });
   }
+
+  function handleDone(e) {
+    const updatedTasks = tasks;
+    updatedTasks[e.target.id]["done"] = true;
+    setTask(updatedTasks);
+  }
+
+  function handleDelete(e) {
+    const updatedTasks = tasks;
+    updatedTasks.delete(e.target.id);
+    setTask(updatedTasks);
+  }
+
   const { classes } = props;
   return (
     <form className={classes.parent} onSubmit={handleAdd}>
+      <i
+        id="todo"
+        onClick={props.minimise}
+        className={`fa-solid fa-square-minus ${classes.mini}`}
+      ></i>
       <div className={classes.inp}>
         <input
           id="task"
@@ -66,6 +84,7 @@ function Todo(props) {
       </div>
       <button className={classes.btn}>Add task</button>
       <div className={classes.tasks}>{handleTasks()}</div>
+      <i className={`fa-solid fa-maximize ${classes.expand}`}></i>
     </form>
   );
 }

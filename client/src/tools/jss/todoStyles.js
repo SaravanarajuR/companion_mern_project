@@ -1,18 +1,31 @@
 import { createStyles } from "@material-ui/styles";
 const styles = createStyles({
   parent: {
-    backgroundColor: "rgba(255,255,255,0.3)",
+    contentVisibility: (props) => {
+      return props.state.todo[1] ? "visible" : "hidden";
+    },
+    visibility: (props) => {
+      return props.state.todo[1] ? "visible" : "hidden";
+    },
+    backgroundColor: "rgba(0,0,0,0.7)",
     borderRadius: "10px",
-    height: "400px",
-    width: "300px",
+    minHeight: "400px",
+    minWidth: "300px",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     position: "absolute",
     top: "10px",
+    resize: "both",
+    overflow: "auto",
     left: "10px",
     display: "flex",
     gap: "10px",
+    "&::-webkit-resizer": {
+      display: "none",
+    },
+    maxWidth: (props) => props.state.windowWidth,
+    maxHeight: (props) => props.state.windowHeight,
   },
   inp: {
     display: "flex",
@@ -59,6 +72,19 @@ const styles = createStyles({
       backgroundColor: "black",
       width: "5px",
     },
+  },
+  expand: {
+    position: "absolute",
+    bottom: "5px",
+    right: "5px",
+    color: "rgba(255,255,255,0.7)",
+  },
+  mini: {
+    position: "absolute",
+    color: "rgba(255,255,255,0.7)",
+    top: "5px",
+    fontSize: "1.7rem",
+    right: "5px",
   },
 });
 

@@ -13,7 +13,7 @@ const style = {
     display: "flex",
     flexDirection: "column",
     width: "40px",
-    backgroundColor: "rgba(255,255,255,0.3)",
+    backgroundColor: "rgba(0,0,0,0.7)",
     color: "white",
     fontSize: "1.4rem",
     position: "absolute",

@@ -17,7 +17,6 @@ class stopWatch extends Component {
   }
 
   componentDidMount() {
-    console.log("hi");
     const intervalId = setInterval(() => {
       this.setState({
         sec: this.state.sec + 1,

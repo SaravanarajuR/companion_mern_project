@@ -10,6 +10,7 @@ import Timer from "../tools/elements/timer";
 import Clock from "../tools/elements/clock";
 import Todo from "../tools/elements/todoList";
 import TaskBar from "../tools/elements/taskBar";
+import Calc from "../tools/elements/calculator";
 
 class Home extends Component {
   constructor() {
@@ -28,16 +29,17 @@ class Home extends Component {
       fullScreen: [false, true],
       clock: [false, true],
       code: [false, true],
+      used: false,
       taskbar: false,
       music: [false, true],
       windowWidth: window.innerWidth - 100,
-      windowHeight: window.innerHeight - 300,
+      windowHeight: window.innerHeight - 100,
     };
   }
   handleWindow = () => {
     this.setState({
       windowWidth: window.innerWidth - 100,
-      windowHeight: window.innerHeight - 300,
+      windowHeight: window.innerHeight - 100,
     });
   };
   componentDidMount() {
@@ -49,6 +51,9 @@ class Home extends Component {
   handleVisibility = (e) => {
     e.stopPropagation();
     const arr = this.state[e.target.id];
+    if (arr[0] && !arr[1]) {
+      arr[1] = !arr[1];
+    }
     arr[0] = !arr[0];
     this.setState({ [e.target.id]: arr });
   };
@@ -70,7 +75,12 @@ class Home extends Component {
     e.stopPropagation();
     const arr = this.state[e.target.id];
     arr[1] = !arr[1];
-    this.setState({ [e.target.id]: arr });
+    if (!this.state.taskbar) {
+      setTimeout(() => {
+        this.setState({ taskbar: false });
+      }, 1000);
+    }
+    this.setState({ [e.target.id]: arr, taskbar: true });
   };
   changeBackground = (e) => {
     e.stopPropagation();
@@ -126,15 +136,11 @@ class Home extends Component {
           ""
         )}
         {this.state.utube[0] ? (
-          <Youtube
-            state={this.state}
-            minimise={this.handleMinimise}
-            windowWidth={this.state.windowWidth}
-            windowHeight={this.state.windowHeight}
-          />
+          <Youtube state={this.state} minimise={this.handleMinimise} />
         ) : (
           ""
         )}
+        {this.state.calc[0] ? <Calc /> : ""}
         {this.state.menu[0] ? (
           <Menu
             handleVisibility={this.handleVisibility}
@@ -172,7 +178,10 @@ class Home extends Component {
           />
         ) : (
           <div className={classes.taskbar} onClick={this.closeBar}>
-            <i className="fa-solid fa-angles-up"></i>
+            <div className={classes.icon}>
+              <span className={`fa-solid fa-angles-up`}></span>
+            </div>
+            <div className={classes.fakeTask}></div>
           </div>
         )}
       </div>

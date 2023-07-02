@@ -1,7 +1,7 @@
 const styles = {
   input: {
     width: "240px",
-    height: "30px",
+    height: "40px",
     padding: "0 9px",
     borderRadius: "5px",
     border: "none",
@@ -12,17 +12,23 @@ const styles = {
     borderRadius: "7px",
     border: "none",
   },
+  p: {
+    position: "absolute",
+    top: "-10px",
+    fontWeight: "800",
+    color: "white",
+  },
   form: {
     width: "300px",
     height: "90px",
     borderRadius: "5px",
     display: "flex",
     flexDirection: "column",
-    padding: "20px",
+    padding: "30px",
     gap: "15px",
     justifyContent: "flex-end",
     alignItems: "center",
-    backgroundColor: "rgba(255,255,255,0.3)",
+    backgroundColor: "rgba(0,0,0,0.7)",
   },
   parent: {
     contentVisibility: (props) => {
@@ -37,28 +43,33 @@ const styles = {
   },
   utube: {
     borderRadius: "5px",
-    padding: "20px",
-    backgroundColor: "rgba(255,255,255,0.3)",
+    padding: "20px 10px 10px 10px",
+    backgroundColor: "rgba(0,0,0,0.7)",
     gap: "10px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-  },
-  sizeForm: {
-    backgroundColor: "rgba(0,0,0,0.5)",
-    gap: "10px",
-    display: "flex",
-    flexDirection: "column",
-    padding: "10px",
-    alignItems: "center",
+    resize: "both",
+    overflow: "auto",
+    maxHeight: (props) => props.state.windowHeight,
+    maxWidth: (props) => props.state.windowWidth,
+    "&::-webkit-resizer": {
+      display: "none",
+    },
   },
   mini: {
-    color: "rgba(0,0,0,0.7)",
+    color: "rgba(255,255,255,0.7)",
     fontSize: "1.7rem",
     position: "absolute",
     top: "5px",
     right: "5px",
+  },
+  expand: {
+    position: "absolute",
+    bottom: "5px",
+    right: "5px",
+    color: "rgba(255,255,255,0.7)",
   },
 };
 

@@ -16,7 +16,7 @@ const styles = {
     top: "10px",
     borderRadius: "10px",
     left: "10px",
-    backgroundColor: "rgba(255,255,255,0.4)",
+    backgroundColor: "rgba(0,0,0,0.7)",
   },
   clockInner: {
     color: "white",
@@ -55,10 +55,10 @@ const styles = {
   },
   mini: {
     position: "absolute",
-    color: "rgba(0,0,0,0.7)",
     top: "5px",
     fontSize: "1.7rem",
     right: "5px",
+    color: "rgba(255,255,255,0.7)",
   },
 };
 
