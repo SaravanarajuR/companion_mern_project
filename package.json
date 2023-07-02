@@ -2,14 +2,13 @@
   "dependencies": {
     "init": "^0.1.2",
     "nodemon": "^2.0.22",
-        "concurrently": "^8.2.0"
+    "concurrently": "^8.2.0"
   },
   "name": "server",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-        "client": "npm run start --prefix client",
+    "client": "npm run start --prefix client",
     "server": "nodemon index",
     "clientinstall": "npm i --legacy-peer-deps --prefix client",
     "serverinstall": "npm i --legacy-peer-deps --prefix server",
@@ -20,4 +19,3 @@
   "license": "ISC",
   "description": ""
 }
-
