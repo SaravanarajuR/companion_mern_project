@@ -4,6 +4,6 @@ const server = http.createServer((req, res) => {
   console.log(req.url);
 });
 
-server.listen(5000, () => {
+server.listen("https://compannion.azurewebsites.net/", () => {
   console.log("server running");
 });
