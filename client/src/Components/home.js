@@ -5,17 +5,18 @@ import StopWatch from "../tools/elements/stopWatch";
 import Menu from "../tools/elements/menu";
 import Youtube from "../tools/elements/youtube";
 import Code from "../tools/elements/codeSandBox";
-import window from "global";
 import Timer from "../tools/elements/timer";
 import Clock from "../tools/elements/clock";
 import Todo from "../tools/elements/todoList";
 import TaskBar from "../tools/elements/taskBar";
 import Calc from "../tools/elements/calculator";
+import Preview from "../tools/elements/imagePreview";
 
 class Home extends Component {
   constructor() {
     super();
     this.state = {
+      images: [],
       image: "",
       timer: [false, true],
       youtube: [false, true],
@@ -44,6 +45,11 @@ class Home extends Component {
   };
   componentDidMount() {
     window.addEventListener("resize", this.handleWindow);
+    let img = [];
+    for (let i = 1; i <= 9; i++) {
+      img.push();
+    }
+    this.setState({ images: img });
   }
   componentWillUnmount() {
     window.removeEventListener("resize", this.handleWindow);
@@ -107,6 +113,7 @@ class Home extends Component {
     };
     return (
       <div id="top" style={bg} className={classes.home}>
+        <Preview />
         <div className={classes.backParent}>
           <label id="visibility" className={classes.customInputButton}>
             <input
