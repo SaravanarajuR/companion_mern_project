@@ -4,16 +4,16 @@
     "express": "^4.18.2",
     "init": "^0.1.2",
     "mocha": "^10.2.0",
+    "mongoose": "^7.3.2",
     "nodemon": "^2.0.22"
   },
   "name": "server",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "npm run build --prefix client",
-    "server": "nodemon index",
-    "clientinstall": "npm i --legacy-peer-deps --prefix client",
-    "start": "concurrently \"npm run clientinstall & npm run build & npm run server\" "
+    "install": "npm i --legacy-peer-deps && cd client && npm i --legacy-peer-deps",
+    "build": "cd client && npm run build ",
+    "start": " npm run build && node index.js"
   },
   "keywords": [],
   "author": "",
