@@ -24,7 +24,7 @@ const Styles = {
     justifyContent: "center",
     width: "100%",
     height: "100%",
-    backgroundColor: "#124559",
+    backgroundColor: "#013243",
     userSelect: "none",
     overflow: "hidden",
   },
