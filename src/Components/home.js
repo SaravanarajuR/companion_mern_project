@@ -53,13 +53,14 @@ class Home extends Component {
   }
   componentWillUnmount() {
     window.removeEventListener("resize", this.handleWindow);
-    document.removeEventListener("mouseleave", this.getLocation);
   }
   handleVisibility = (e) => {
     e.stopPropagation();
     const arr = this.state[e.target.id];
-    if (arr[1] === true && arr[0] === true) arr[1] = true;
-    if (arr[0] === false && arr[1] === true) arr[0] = true;
+    if (arr[0] && !arr[1]) {
+      arr[1] = !arr[1];
+    }
+    arr[0] = !arr[0];
     this.setState({ [e.target.id]: arr });
   };
   handleFullScreen = (e) => {
@@ -76,7 +77,6 @@ class Home extends Component {
       this.setState({ fullScreen: arr });
     }
   };
-
   handleMinimise = (e) => {
     e.stopPropagation();
     const arr = this.state[e.target.id];
@@ -88,14 +88,6 @@ class Home extends Component {
     }
     this.setState({ [e.target.id]: arr, taskbar: true });
   };
-
-  handleClose = (e) => {
-    e.stopPropagation();
-    const arr = this.state[e.target.id];
-    if (arr[0] === true) arr[0] = false;
-    this.setState({ [e.target.id]: arr });
-  };
-
   changeBackground = (e) => {
     e.stopPropagation();
     if (e.target.files[0]) {
@@ -121,6 +113,7 @@ class Home extends Component {
     };
     return (
       <div id="top" style={bg} className={classes.home}>
+        <Preview />
         <div className={classes.backParent}>
           <label id="visibility" className={classes.customInputButton}>
             <input
@@ -135,56 +128,30 @@ class Home extends Component {
           </label>
         </div>
         {this.state.clock[0] ? (
-          <Clock
-            state={this.state}
-            minimise={this.handleMinimise}
-            close={this.handleClose}
-          />
+          <Clock state={this.state} minimise={this.handleMinimise} />
         ) : (
           ""
         )}
         {this.state.todo[0] ? (
-          <Todo
-            state={this.state}
-            close={this.handleClose}
-            minimise={this.handleMinimise}
-          />
+          <Todo state={this.state} minimise={this.handleMinimise} />
         ) : (
           ""
         )}
         {this.state.stopwatch[0] ? (
-          <StopWatch
-            state={this.state}
-            close={this.handleClose}
-            minimise={this.handleMinimise}
-          />
+          <StopWatch state={this.state} minimise={this.handleMinimise} />
         ) : (
           ""
         )}
         {this.state.utube[0] ? (
-          <Youtube
-            state={this.state}
-            close={this.handleClose}
-            minimise={this.handleMinimise}
-          />
+          <Youtube state={this.state} minimise={this.handleMinimise} />
         ) : (
           ""
         )}
-        {this.state.calc[0] ? (
-          <Calc
-            state={this.state}
-            minimise={this.handleMinimise}
-            close={this.handleClose}
-            handleVisibility={this.handleVisibility}
-          />
-        ) : (
-          ""
-        )}
+        {this.state.calc[0] ? <Calc /> : ""}
         {this.state.menu[0] ? (
           <Menu
             handleVisibility={this.handleVisibility}
             handleMenu={this.handleMenu}
-            close={this.handleClose}
             fs={this.handleFullScreen}
           />
         ) : (
@@ -201,27 +168,18 @@ class Home extends Component {
           </div>
         )}
         {this.state.timer[0] ? (
-          <Timer
-            close={this.handleClose}
-            minimise={this.handleMinimise}
-            state={this.state}
-          />
+          <Timer minimise={this.handleMinimise} state={this.state} />
         ) : (
           ""
         )}
         {this.state.code[0] ? (
-          <Code
-            state={this.state}
-            close={this.handleClose}
-            minimise={this.handleMinimise}
-          />
+          <Code state={this.state} minimise={this.handleMinimise} />
         ) : (
           ""
         )}
         {this.state.taskbar ? (
           <TaskBar
             state={this.state}
-            close={this.handleClose}
             minimise={this.handleMinimise}
             closeBar={this.closeBar}
           />

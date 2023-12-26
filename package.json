@@ -13,9 +13,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "install": "npm i --legacy-peer-deps && cd client && npm i --legacy-peer-deps",
-    "build": "cd client && npm run build ",
-    "start": " npm run build && node index.js"
+    "build": "npm i --legacy-peer-deps && cd client &&npm i --legacy-peer-deps && npm run build ",
+    "start": " npm run build  && node index.js"
   },
   "keywords": [],
   "author": "",

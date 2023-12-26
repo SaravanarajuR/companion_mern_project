@@ -12,7 +12,6 @@ const style = {
     backgroundColor: "rgba(0,0,0,0.7)",
   },
   form: {
-    marginTop: "20px",
     width: "100%",
     height: "70px",
     display: "flex",
@@ -48,26 +47,6 @@ const style = {
     borderRadius: "5px",
     border: "none",
     height: "30px",
-  },
-  mini: {
-    position: "absolute",
-    top: "7px",
-    fontSize: "1.7rem",
-    right: "5px",
-    color: "rgba(255,255,255,0.7)",
-  },
-  move: {
-    position: "absolute",
-    top: "9px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "18px",
-    fontSize: "1.1rem",
-    right: "32px",
-    borderRadius: "5px",
-    padding: "3px",
-    backgroundColor: "rgba(255,255,255,0.7)",
   },
 };
 

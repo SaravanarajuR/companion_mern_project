@@ -23,7 +23,11 @@ class Menu extends Component {
     return (
       <div width="100%" height="100%">
         <div className={classes.menu}>
-          <div onClick={this.props.close} id="menu" className={classes.close}>
+          <div
+            onClick={this.props.handleVisibility}
+            id="menu"
+            className={classes.close}
+          >
             <i id="menu" className="fa-solid fa-circle-xmark"></i>
           </div>
           {this.handleMenuItems()}

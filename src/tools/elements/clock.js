@@ -37,12 +37,7 @@ class Clock extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <div className={classes.clock} draggable="true">
-        <i
-          onClick={this.props.close}
-          id="clock"
-          className={`fa-solid fa-xmark ${classes.move}`}
-        ></i>
+      <div className={classes.clock}>
         <i
           onClick={this.props.minimise}
           id="clock"

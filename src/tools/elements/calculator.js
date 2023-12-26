@@ -5,16 +5,6 @@ function Calc(props) {
   const { classes } = props;
   return (
     <div className={classes.parent}>
-      <i
-        onClick={props.close}
-        id="calc"
-        className={`fa-solid fa-xmark ${classes.move}`}
-      ></i>
-      <i
-        onClick={props.minimise}
-        id="calc"
-        className={`fa-solid fa-square-minus ${classes.mini}`}
-      ></i>
       <form className={classes.form}>
         <textarea className={classes.screen}></textarea>
         <button className={classes.subButton}>Calculate</button>

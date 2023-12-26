@@ -60,19 +60,6 @@ const styles = {
     right: "5px",
     color: "rgba(255,255,255,0.7)",
   },
-  move: {
-    position: "absolute",
-    top: "7px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "18px",
-    fontSize: "1.1rem",
-    right: "32px",
-    borderRadius: "5px",
-    padding: "3px",
-    backgroundColor: "rgba(255,255,255,0.7)",
-  },
 };
 
 export default styles;
